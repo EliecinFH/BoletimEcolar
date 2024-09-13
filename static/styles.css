@@ -1,0 +1,116 @@
+/* styles.css */
+
+/* Estilos basicos para o corpo e contêiner */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d5d1f3;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.container {
+    width: 20%;
+    margin: auto;
+    background-color: #57ebd2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px
+
+}
+
+/* Estili para o cabeçalho */
+h1 {
+    text-align: center;
+   /* margin-bottom: 20px; */
+
+}
+
+/* Estilo para os campos do formalário */
+.subject {
+    margin-bottom: 15px;
+
+}
+
+label {
+    margin-bottom: 5px;
+
+}
+
+input[type="text"] {
+    width: 51%;
+    padding: 3px;
+    box-sizing: border-box;
+
+}
+
+/* Estilos para os botões */
+button {
+    display: block;
+    padding: 3% 20px;
+    background-color: #007dff;
+    color: #fff;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+
+}
+
+.tab-button:hover {
+    background-color: #0056b3;
+
+}
+
+/* Estilos para as abas */
+.tabs {
+    margin-top: 20px;
+
+}
+
+.tab-buttom {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 1px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+}
+
+.tab-buttom:hover {
+    background-color:#0056b3;
+
+}
+
+/* Estilos para o conteúdo das abas */
+.tab-content {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 0.5s;
+
+}
+
+.subject {
+    background-color: #bdf4fd;
+    padding: 10px;
+    margin-bottom: 5px 0;
+    border-radius: 5px;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacyt: 1;
+    }
+}

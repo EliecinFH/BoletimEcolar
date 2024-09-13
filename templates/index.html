@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boletim Escolar</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    </head>
+<body>
+        <div class="container">
+            <h1>BOLETIM</h1>
+            <!-- Formulário para entrada do nome do aluno e notas -->
+            <form method="GET" action="/">
+                <div class="subject">
+                    <label for="nome_aluno">Nome do Aluno:</label>
+                    <input type="text" id="nome_aluno" name="nome_aluno">
+                
+                </div>
+
+                <div class="subject">
+                    <label for="biologia">BIOLOGIA:</label>
+                    <input type="text" id="biologia" name="biologia">
+                    
+                </div>
+
+                <div class="subject">
+                    <label for="geografia">GEOGRAFIA:</label>
+                    <input type="text" id="geografia" name="geografia">
+                
+                </div>
+
+                <div class="subject">
+                    <label for="historia">HISTÓRIA:</label>
+                    <input type="text" id="historia" name="historia">
+
+                </div>
+
+                <div class="subject">
+                    <label for="literatura">LITERATURA:</label>
+                    <input type="text" id="literatura" name="literatura">
+
+                </div>
+
+                <div class="subject">
+                    <label for="matematica">MATEMÁTICA:</label>
+                    <input type="text" id="matematica" name="matematica">
+
+                </div>
+
+                <div class="subject">
+                    <label for="portugues">PORTUGUÊS</label>
+                    <input type="text" id="portugues" name="portugues">
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+            <!-- Botões para exibir o resultado correspondente -->
+            <div class="tabs">
+                {% if resultado == 'Aprovado' %}
+                    <button class="tab-button" onclick="showTab('aprovado')">Aprovado - {{ nome_aluno }}</button>
+                {% elif resutado == 'Recuperação' %}
+                    <button class="tab-button" onclick="showTab('recuperacao')">Recuperação - {{ nome_aluno }}</button>
+                {% elif resultado == 'Reprovado' %}    
+                    <button class="tab-button" onclick="showTab('reprovado')">Reprovado - {{ nome_aluno }}</button>
+                
+                {% endif %}
+            </div>
+            
+            <!-- Seções para exibir as notas e o resultado correspondente -->
+            <div id="aprovado" class="tab-content">
+                {% if resultado == 'Aprovado' %}
+                    <h2>{{ nome_aluno }} - Aprovado</h2>
+                    <p>Média: {{ media }}</p>
+                    {% for materia, nota in notas.items() %}
+                        <div class="subject">{{ materia|capitalize }}: {{ nota }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div id="recuperacao" class="tab-content" style="display:none;">
+                {% if resultado == 'Recuperação' %}
+                    <h2>{{ nome_aluno }} - Recuperação</h2>
+                    <p>Média: {{ media }}</p>
+                    {% for materia, nota in notas.items() %}
+                        <div class="subject">{{ materia|capitalize }}: {{ nota }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div id="reprovado" class="tab-content" style="display:none;">
+                {% if resultado == 'Reprovado' %}
+                    <h2>{{ nome_aluno }} - Reprovado</h2>
+                    <p>Média: {{ media }}</p>
+                    {% for materia, nota in notas.items() %}
+                        <div class="subject">{{ materia|capitalize }}: {{ nota }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    <!-- Inclusão da script JavaScript -->
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
